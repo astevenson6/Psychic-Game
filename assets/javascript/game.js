@@ -5,10 +5,9 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var guessed = [];
-var eachofLetters = null;
 
-// Found equation for getting random item from array
-var computerGuess = keyChoices[Math.floor(Math.random() * keyChoices.length)];
+// Found equation for getting random item from array, EDIT: but made it a function instead so it reset after win/loss
+var computerGuess;
 
 // Looked up document command for matching with html element
 
@@ -19,15 +18,16 @@ function numberGuessesLeft() {
 function farGuessesLeft() {
     document.querySelector("#guessed").innerHTML = "Your Guesses So Far : " + guessed.join(" ");
 }
-// tried to make function to make re-randomize after win. cant figure it out
+// tried to make function to make re-randomize after win. cant figure it out. EDIT: was defined about which just made it scuffed. by not defining above and only putting in function it worked
 function randomizeSample() {
-    var computerGuess = keyChoices[Math.floor(Math.random() * keyChoices.length)];
+    computerGuess = keyChoices[Math.floor(Math.random() * keyChoices.length)];
 }
 
+randomizeSample();
 
 numberGuessesLeft();
 
-// restart function should reset to 9, reset guessed letters, and randomize comp again
+// restart function should reset to 9, reset guessed letters, and randomize comp again. EDIT: works now
 function restart() {
     guessesLeft = 9;
     guessed = [];
@@ -37,6 +37,7 @@ function restart() {
 
 // main function when user pushes a key. restart function ran if win or loss
 document.onkeyup = function (event) {
+    console.log(computerGuess);
     guessesLeft--;
 
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
