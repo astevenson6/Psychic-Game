@@ -1,0 +1,19 @@
+html {
+    box-sizing: border-box;
+}
+
+.hangover {
+    float: left;
+    margin: 50px;
+
+}
+
+.game-tracker {
+    margin: 50px;
+    font-size: 24px;
+    line-height: 36px;
+}
+h1 {
+    font-weight: bold;
+    font-size: 40px;
+}
