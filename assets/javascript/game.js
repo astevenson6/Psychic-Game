@@ -36,7 +36,7 @@ function restart() {
 }
 
 // main function when user pushes a key. restart function ran if win or loss
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
     guessesLeft--;
 
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
@@ -44,8 +44,8 @@ document.onkeyup = function(event) {
     guessed.push(userGuess);
     numberGuessesLeft();
     farGuessesLeft();
-// win or loss
-    if (userGuess === computerGuess){
+    // win or loss
+    if (userGuess === computerGuess) {
         wins++;
         document.querySelector("#wins").innerHTML = "Wins: " + wins;
         restart();
